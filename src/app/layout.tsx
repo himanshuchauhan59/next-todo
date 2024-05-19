@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import { config } from "@fortawesome/fontawesome-svg-core";
+import Header from "./Header/header";
+import { ThemeProvider } from "next-themes";
 const inter = Inter({ subsets: ["latin"] });
+config.autoAddCss = false;
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +19,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className={inter.className}>
+      <body className=" bg-white text-black dark:bg-[#1f1f1f] dark:text-white transition-all duration-200">
+        <ThemeProvider attribute="class" defaultTheme='system'>
+          <div className="">
+            <Header />
+          </div>
+          <div className="mt-2">
+            {children}
+          </div>
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

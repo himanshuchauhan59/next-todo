@@ -1,0 +1,23 @@
+.link-active {
+    position: relative;
+    background-color: #c2c2c269;
+    border-radius: 6px;
+}
+
+.link-dark-active {
+    position: relative;
+    background-color: #0000008b;
+    border-radius: 6px;
+}
+
+.link-active::before,
+.link-dark-active::before {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 20px;
+    background-color: #007bff;
+    border-radius: 6px;
+    left: -1px;
+    top: 6px;
+}
